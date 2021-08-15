@@ -7,6 +7,27 @@ public func configure(_ app: Application) throws {
     // uncomment to serve files from /Public folder
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
+    let cors = CORSMiddleware(
+        configuration: .init(
+            allowedOrigin: .all,
+            allowedMethods: [
+                .POST,
+                .GET,
+                .OPTIONS
+            ],
+            allowedHeaders: [
+                .accept,
+                .authorization,
+                .contentType,
+                .origin,
+                .xRequestedWith,
+                .userAgent,
+                .accessControlAllowOrigin
+            ]
+        )
+    )
+    app.middleware.use(cors)
+
     app.databases.use(.postgres(
         hostname: Environment.get("DATABASE_HOST") ?? "localhost",
         port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? PostgresConfiguration.ianaPortNumber,
@@ -15,7 +36,7 @@ public func configure(_ app: Application) throws {
         database: Environment.get("DATABASE_NAME") ?? "vapor_database"
     ), as: .psql)
 
-    app.migrations.add(CreateTodo())
+    app.migrations.add(CreateFeedbackRecords())
 
     // register routes
     try routes(app)
