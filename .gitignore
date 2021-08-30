@@ -7,3 +7,6 @@ DerivedData/
 db.sqlite
 .swiftpm
 
+.gitsecret/keys/random_seed
+!*.secret
+.env.prod
