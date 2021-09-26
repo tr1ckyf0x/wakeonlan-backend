@@ -22,7 +22,8 @@ public func configure(_ app: Application) throws {
                 .origin,
                 .xRequestedWith,
                 .userAgent,
-                .accessControlAllowOrigin
+                .accessControlAllowOrigin,
+                .init("ReCaptchaToken")
             ]
         )
     )
