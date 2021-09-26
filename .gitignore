@@ -10,3 +10,4 @@ db.sqlite
 .gitsecret/keys/random_seed
 !*.secret
 .env.prod
+.env.debug

@@ -36,8 +36,13 @@ public func configure(_ app: Application) throws {
         else {
             break
         }
-        
-        postgresConfig.tlsConfiguration = .forClient(certificateVerification: .none)
+
+        let postgresTLSConfiguration: TLSConfiguration = {
+            var configuration = TLSConfiguration.makeClientConfiguration()
+            configuration.certificateVerification = .none
+            return configuration
+        }()
+        postgresConfig.tlsConfiguration = postgresTLSConfiguration
         app.databases.use(.postgres(
             configuration: postgresConfig
         ), as: .psql)
