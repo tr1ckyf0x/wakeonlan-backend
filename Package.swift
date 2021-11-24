@@ -1,10 +1,10 @@
-// swift-tools-version:5.4
+// swift-tools-version:5.5
 import PackageDescription
 
 let package = Package(
     name: "wakeonlan-backend",
     platforms: [
-        .macOS(.v11)
+        .macOS(.v12)
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
