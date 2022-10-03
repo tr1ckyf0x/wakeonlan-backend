@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.7
 import PackageDescription
 
 let package = Package(
@@ -8,9 +8,9 @@ let package = Package(
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
-        .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
-        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0"),
+        .package(url: "https://github.com/vapor/vapor.git", .upToNextMajor(from: "4.65.2")),
+        .package(url: "https://github.com/vapor/fluent.git", .upToNextMajor(from: "4.5.0")),
+        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", .upToNextMajor(from: "2.4.0"))
     ],
     targets: [
         .target(

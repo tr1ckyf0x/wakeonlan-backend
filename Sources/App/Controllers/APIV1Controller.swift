@@ -12,5 +12,6 @@ struct APIV1Controller: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
         let apiV1Group = routes.grouped("api", "v1")
         try apiV1Group.register(collection: SupportController())
+        try apiV1Group.register(collection: AdminController())
     }
 }

@@ -36,3 +36,13 @@ final class FeedbackRecord: Model, Content {
         self.message = message
     }
 }
+
+extension FeedbackRecord: Equatable {
+    static func ==(lhs: FeedbackRecord, rhs: FeedbackRecord) -> Bool {
+        guard lhs.username == rhs.username,
+              lhs.email == rhs.email,
+              lhs.message == rhs.message
+        else { return false }
+        return true
+    }
+}
